@@ -14,7 +14,7 @@ namespace Creartabla
         {
 
 
-            var id = new ID();
+            var id = Guid.NewGuid(); 
 
 
             
@@ -24,11 +24,11 @@ namespace Creartabla
                 VALUES (@Id, @Name, @Price, @Size");
             insertcommand.Parameters.Add("@Id",SqlDbType.VarChar, 32, "id");
             insertcommand.Parameters.Add("@Name", SqlDbType.NVarChar , 24, "Barbacoa");
-            insertcommand.Parameters.Add("@Price", SqlDbType.Decimal, 8, "21.30");
-            insertcommand.Parameters.Add("@Size", SqlDbType.Decimal, 8, "25.36");
+            insertcommand.Parameters.Add("@Price", SqlDbType.Decimal, 8, "21");
+            insertcommand.Parameters.Add("@Size", SqlDbType.Decimal, 8, "25");
 
 
-            SqlCommand selectcommand = new SqlCommand(@"SELECT Guid, Name, Price, Size FROM Pizza ");
+           // SqlCommand selectcommand = new SqlCommand(@"SELECT Guid, Name, Price, Size FROM Pizza ");
 
             //SqlDataReader reader = selectcommand.ExecuteReader();
 
@@ -52,17 +52,17 @@ namespace Creartabla
 
                 adapter.InsertCommand = insertcommand;
 
-                adapter.SelectCommand = selectcommand;
+               // adapter.SelectCommand = selectcommand;
 
                 
-
-                foreach (string registro in adapter)
+                /*
+                foreach (string  in )
                 {
 
                     Console.WriteLine(adapter);
 
                     
-                }
+                }*/
             }
             catch (SqlException e)
             {
@@ -78,7 +78,7 @@ namespace Creartabla
 
 
                 //Console.WriteLine();
-               Console.Read();
+              // Console.Read();
 
 
                 connection.Dispose();
@@ -90,14 +90,7 @@ namespace Creartabla
         }
     }
 
-    class ID
-    {
-
-        public static Guid CreateIdentifier()
-        {
-            return Guid.NewGuid();
-        }
-    }
+   
 
        
 }
