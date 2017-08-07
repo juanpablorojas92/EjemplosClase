@@ -34,4 +34,16 @@ namespace Ejemplo6
 
         
     }
+
+    class Sql
+    {
+        public Sql where()
+        {
+            return this;
+        }
+        public Sql Select()
+        {
+            return this;
+        }
+    }
 }
